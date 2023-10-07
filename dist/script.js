@@ -1,5 +1,5 @@
-// const canvas = document.getElementById("canvas");
-// const ctx = canvas.getContext("2d");
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
 // canvas.width = window.innerWidth;
 // // //fillRect();
 // // ctx.fillStyle = "grey";
@@ -52,17 +52,56 @@
 // ctx.arc(centerX + 85, centerY - 80, 25, 0, Math.PI * 2);
 // ctx.stroke();
 //Animation
-var circle = {
-    x: 200,
+// const circle = {
+//   x: 200,
+//   y: 200,
+//   size: 30,
+//   dx: 5,
+//   dy: 4,
+// };
+// function drawCircle() {
+//   ctx.beginPath();
+//   ctx.arc(circle.x, circle.y, circle.size, 0, Math.PI * 2);
+//   ctx.fillStyle = "purple";
+//   ctx.fill();
+// }
+// drawCircle();
+// function update() {
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   drawCircle();
+//   //change position
+//   circle.x += circle.dx;
+//   circle.y += circle.dy;
+//   //wall detection
+//   if (circle.x + circle.size > canvas.width) {
+//     circle.dx *= -1;
+//   }
+//   if (circle.y + circle.size > canvas.height) {
+//     circle.dy *= -1;
+//   }
+//   if (circle.x - circle.size < 0) {
+//     circle.dx *= -1;
+//   }
+//   if (circle.y - circle.size < 0) {
+//     circle.dy *= -1;
+//   }
+//   requestAnimationFrame(update);
+// }
+// update();
+var image = document.getElementById("source");
+var player = {
+    w: 50,
+    h: 70,
+    x: 20,
     y: 200,
-    radius: 30,
-    dx: 5,
-    dy: 4
+    speed: 5,
+    dx: 0,
+    dy: 0
 };
-function drawCircle() {
-    ctx.beginPath();
-    ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
-    ctx.style = "grey";
-    ctx.fill;
+function drawPlayer() {
+    ctx.drawImage(image, player.x, player.y, player.w, player.h);
 }
-drawCircle();
+function update() {
+    drawPlayer();
+}
+update();
